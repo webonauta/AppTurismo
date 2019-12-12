@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,7 +47,7 @@ public class RegistroActivity extends AppCompatActivity {
         edTPwd = (EditText) findViewById(R.id.edTPwd);
         btnRegistro = (Button) findViewById(R.id.btnRegistro);
 
-        Button btnIniciar = (Button) findViewById(R.id.btnIniciar);
+        Button btnIniciar = (Button) findViewById(R.id.btnIniciarS);
         btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,5 +104,32 @@ public class RegistroActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public static class Slide {
+
+        private int image;
+        private String Title;
+
+        public Slide(int image, String title){
+            image = image;
+            Title = title;
+        }
+
+        public int getImage(){
+            return image;
+        }
+
+        public void setImage(int image) {
+            this.image = image;
+        }
+
+        public void setTitle(String title) {
+            Title = title;
+        }
+
+        public String getTitle(){
+            return Title;
+        }
     }
 }
