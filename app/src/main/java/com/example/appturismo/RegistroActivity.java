@@ -47,8 +47,8 @@ public class RegistroActivity extends AppCompatActivity {
         edTPwd = (EditText) findViewById(R.id.edTPwd);
         btnRegistro = (Button) findViewById(R.id.btnRegistro);
 
-        Button btnIniciar = (Button) findViewById(R.id.btnIniciarS);
-        btnIniciar.setOnClickListener(new View.OnClickListener() {
+        Button btnIniciarS = (Button) findViewById(R.id.btnIniciarS);
+        btnIniciarS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), MainActivity.class);
