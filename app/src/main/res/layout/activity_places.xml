@@ -4,11 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlacesActivity">
+    tools:context=".PlacesActivity"
+    android:background="@color/colorPrimary"
+    >
 
-    <TextView
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/slider_page"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Estas dentro de la app"/>
-
+        android:layout_height="275dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

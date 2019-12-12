@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btnIniciar"
+        android:id="@+id/btnIniciarS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="39dp"
@@ -27,7 +27,7 @@
         android:background="@drawable/btn"
         android:text="REGISTRARSE"
         app:layout_constraintBottom_toTopOf="@+id/textViewCuenta"
-        app:layout_constraintStart_toStartOf="@+id/btnIniciar"
+        app:layout_constraintStart_toStartOf="@+id/btnIniciarS"
         app:layout_constraintTop_toBottomOf="@+id/btnGoogle" />
 
     <TextView
@@ -64,6 +64,7 @@
         android:layout_marginBottom="18dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:hint="Contraseña"
         app:layout_constraintBottom_toTopOf="@+id/btnGoogle"
         app:layout_constraintEnd_toEndOf="@+id/edTMail"
         app:layout_constraintTop_toBottomOf="@+id/edTMail" />
@@ -88,8 +89,8 @@
         android:layout_marginBottom="10dp"
         android:text="¿Ya tienes cuenta?"
         android:textColor="#ffff"
-        app:layout_constraintBottom_toTopOf="@+id/btnIniciar"
-        app:layout_constraintStart_toStartOf="@+id/btnIniciar"
+        app:layout_constraintBottom_toTopOf="@+id/btnIniciarS"
+        app:layout_constraintStart_toStartOf="@+id/btnIniciarS"
         app:layout_constraintTop_toBottomOf="@+id/btnRegistro" />
 
     <Button
