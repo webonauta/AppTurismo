@@ -1,6 +1,8 @@
 package com.example.appturismo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -17,6 +19,7 @@ public class PlacesActivity extends AppCompatActivity {
     private List<Slide> lstSlide;
     private ViewPager sliderpager;
     private TabLayout indicator;
+    private RecyclerView PlacesRV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class PlacesActivity extends AppCompatActivity {
 
         sliderpager = findViewById(R.id.slider_page);
         indicator = findViewById(R.id.indicator);
+        PlacesRV = findViewById(R.id.Rv_Place);
 
 
         lstSlide = new ArrayList<>();
@@ -42,6 +46,21 @@ public class PlacesActivity extends AppCompatActivity {
         timer.scheduleAtFixedRate(new PlacesActivity.SliderTimer(), 4000, 6000);
 
         indicator.setupWithViewPager(sliderpager, true);
+
+        //RecyclerView de lugares turisticos individuales
+
+        //Iniciando datos
+        List<Place> lstPlaces = new ArrayList<>();
+        lstPlaces.add(new Place("Museo de antropologia", R.drawable.antropologia));
+        lstPlaces.add(new Place("Castillo de Chapultepec", R.drawable.castillo));
+        lstPlaces.add(new Place("Barrio Chino", R.drawable.barrio_chino));
+        lstPlaces.add(new Place("Monumento a la Revolucion", R.drawable.monumento));
+        lstPlaces.add(new Place("Museo Frida Khalo", R.drawable.museo_frida));
+
+        PlaceAdapter placeAdapter = new PlaceAdapter(this, lstPlaces);
+        PlacesRV.setAdapter(placeAdapter);
+        PlacesRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
 
     }
 

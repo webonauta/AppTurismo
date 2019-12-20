@@ -1,36 +1,47 @@
 package com.example.appturismo;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
+import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.widget.TableLayout;
+
+
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ViewPager screenPager;
+    IntroViewPagerAdapter introViewPagerAdapter;
+    TabLayout tabIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnRegistro = (Button) findViewById(R.id.btnRegistro);
-        btnRegistro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), RegistroActivity.class);
-                startActivityForResult(intent, 0);
-            }
-        });
+        //Iniciando vistas
 
-        Button btnIniciarS = (Button) findViewById(R.id.btnIniciarS);
-        btnIniciarS.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), PlacesActivity.class);
-                startActivityForResult(intent, 0);
-            }
-        });
+        tabIndicator = findViewById(R.id.tab_indicator);
+
+        //Listando vistas
+        List<ScreenItem> mList = new ArrayList<>();
+        mList.add(new ScreenItem("Lugares Turisticos", "Encuentra lugares turisticos populares cercanos a tu ubicacion", R.drawable.cdmx));
+        mList.add(new ScreenItem("Lugares especiales", "¿Buscar un lugar en especifico? Encuentra todo en la aplicacion movil", R.drawable.angel));
+        mList.add(new ScreenItem("Navegacion intuitiva", "Miles de usuarios usan nuestra aplicacion, es muy facil", R.drawable.app));
+
+        //Configurando viewpager
+        screenPager = findViewById(R.id.screen_viewpager);
+        introViewPagerAdapter = new IntroViewPagerAdapter(this, mList);
+        screenPager.setAdapter(introViewPagerAdapter);
+
+        //Declarando layout de las tablas y viewpager
+        tabIndicator.setupWithViewPager(screenPager);
+
+
     }
+
+
 }

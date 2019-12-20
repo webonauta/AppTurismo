@@ -4,74 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
 
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/screen_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        app:layout_constraintBottom_toTopOf="@+id/tab_indicator"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp" />
+
     <Button
-        android:id="@+id/btnIniciarS"
+        android:drawableRight="@drawable/ic_arrow_forward_black_24dp"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
-        android:background="@drawable/btn"
-        android:text="INICIAR SESION"
-        app:layout_constraintEnd_toEndOf="@+id/edTPwd"
-        app:layout_constraintTop_toBottomOf="@+id/edTPwd" />
-
-    <Button
-        android:id="@+id/btnRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/btn"
-        android:text="REGISTRARSE"
-        app:layout_constraintStart_toStartOf="@+id/btnIniciarS"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:text="Conoce México"
-        android:textColor="#ffff"
-        android:textSize="45dp"
-        app:layout_constraintBottom_toTopOf="@+id/edTName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/edTName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="318dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Usuario"
+        android:layout_marginBottom="8dp"
+        android:text="Siguiente"
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/edTPwd"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Contraseña"
-        app:layout_constraintStart_toStartOf="@+id/edTName"
-        app:layout_constraintTop_toBottomOf="@+id/edTName" />
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:text="¿No tienes cuenta?"
-        android:textColor="#ffff"
-        app:layout_constraintEnd_toEndOf="@+id/btnIniciarS"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciarS" />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monday" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuesday" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wednesday" />
+    </com.google.android.material.tabs.TabLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
