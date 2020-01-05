@@ -10,18 +10,15 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/slider_page"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="275dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" >
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.viewpager.widget.ViewPager>
 
-    <TabLayout
+    <com.google.android.material.tabs.TabLayout
         app:tabGravity="center"
         android:id="@+id/indicator"
         app:tabBackground="@drawable/indicator_selector"
@@ -32,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slider_page">
 
-    </TabLayout>
+    </com.google.android.material.tabs.TabLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rv_Place"

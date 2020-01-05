@@ -6,10 +6,7 @@ import android.view.ViewGroup;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.Adapter;
 import androidx.viewpager.widget.PagerAdapter;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,7 +25,7 @@ public class SliderPagerAdapter extends PagerAdapter{
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
         View slideLayout = inflater.inflate(R.layout.slider_item, null);
 
         ImageView sliderImg = slideLayout.findViewById(R.id.slider_img);
@@ -37,7 +34,6 @@ public class SliderPagerAdapter extends PagerAdapter{
         sliderText.setText(mList.get(position).getTitle());
 
         container.addView(slideLayout);
-
         return slideLayout;
     }
 

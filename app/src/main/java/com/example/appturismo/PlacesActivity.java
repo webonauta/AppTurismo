@@ -26,7 +26,6 @@ public class PlacesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
 
-
         sliderpager = findViewById(R.id.slider_page);
         indicator = findViewById(R.id.indicator);
         PlacesRV = findViewById(R.id.Rv_Place);
@@ -51,11 +50,11 @@ public class PlacesActivity extends AppCompatActivity {
 
         //Iniciando datos
         List<Place> lstPlaces = new ArrayList<>();
-        lstPlaces.add(new Place("Museo de antropologia", R.drawable.antropologia));
-        lstPlaces.add(new Place("Castillo de Chapultepec", R.drawable.castillo));
-        lstPlaces.add(new Place("Barrio Chino", R.drawable.barrio_chino));
-        lstPlaces.add(new Place("Monumento a la Revolucion", R.drawable.monumento));
-        lstPlaces.add(new Place("Museo Frida Khalo", R.drawable.museo_frida));
+        lstPlaces.add(new Place("Museo de antropologia", R.drawable.place01));
+        lstPlaces.add(new Place("Castillo de Chapultepec", R.drawable.place02));
+        lstPlaces.add(new Place("Barrio Chino", R.drawable.place03));
+        lstPlaces.add(new Place("Monumento a la Revolucion", R.drawable.place04));
+        lstPlaces.add(new Place("Museo Frida Khalo", R.drawable.place05));
 
         PlaceAdapter placeAdapter = new PlaceAdapter(this, lstPlaces);
         PlacesRV.setAdapter(placeAdapter);
