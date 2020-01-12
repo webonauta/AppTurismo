@@ -74,7 +74,6 @@ public class PlacesActivity extends AppCompatActivity implements  PlaceItemClick
         Intent intent = new Intent(this, PlaceDetailActivity.class);
         intent.putExtra("title", place.getTitle());
         intent.putExtra("imgURL", place.getThumnail());
-        startActivity(intent);
         //Creando animacion
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(PlacesActivity.this, placeimageView, "sharedName");
 
