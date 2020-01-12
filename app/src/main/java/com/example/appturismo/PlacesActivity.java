@@ -5,7 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -14,7 +19,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class PlacesActivity extends AppCompatActivity {
+public class PlacesActivity extends AppCompatActivity implements  PlaceItemClickListener{
 
     private List<Slide> lstSlide;
     private ViewPager sliderpager;
@@ -56,11 +61,27 @@ public class PlacesActivity extends AppCompatActivity {
         lstPlaces.add(new Place("Monumento a la Revolucion", R.drawable.place04));
         lstPlaces.add(new Place("Museo Frida Khalo", R.drawable.place05));
 
-        PlaceAdapter placeAdapter = new PlaceAdapter(this, lstPlaces);
+        PlaceAdapter placeAdapter = new PlaceAdapter(this, lstPlaces, this);
         PlacesRV.setAdapter(placeAdapter);
         PlacesRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
 
+    }
+
+    //Envia informacion de un lugar turistico a Detail Activity y se crea la animacion entre las dos actividades
+    @Override
+    public void onplaceClick(Place place, ImageView placeimageView) {
+        Intent intent = new Intent(this, PlaceDetailActivity.class);
+        intent.putExtra("title", place.getTitle());
+        intent.putExtra("imgURL", place.getThumnail());
+        startActivity(intent);
+        //Creando animacion
+        Activity activity;
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(PlacesActivity.this, placeimageView, "sharedName");
+
+        startActivity(intent, options.toBundle());
+
+        Toast.makeText(this, "item clicked: " + place.getTitle(), Toast.LENGTH_SHORT).show();
     }
 
     class SliderTimer extends TimerTask{
