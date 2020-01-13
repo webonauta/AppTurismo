@@ -1,4 +1,4 @@
-package com.example.appturismo;
+package com.example.appturismo.adapters;
 
 public class ScreenItem {
 

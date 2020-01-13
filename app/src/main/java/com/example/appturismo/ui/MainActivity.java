@@ -1,4 +1,4 @@
-package com.example.appturismo;
+package com.example.appturismo.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -10,9 +10,11 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.TableLayout;
 
 
+import com.example.appturismo.adapters.IntroViewPagerAdapter;
+import com.example.appturismo.R;
+import com.example.appturismo.adapters.ScreenItem;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -119,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean("isIntroOpnend", true);
-        editor.commit();    
+        editor.commit();
     }
 
     private void loadLastScreen(){

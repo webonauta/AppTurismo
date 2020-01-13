@@ -1,17 +1,22 @@
-package com.example.appturismo;
+package com.example.appturismo.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.appturismo.models.Place;
+import com.example.appturismo.adapters.PlaceAdapter;
+import com.example.appturismo.adapters.PlaceItemClickListener;
+import com.example.appturismo.R;
+import com.example.appturismo.models.Slide;
+import com.example.appturismo.adapters.SliderPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -19,7 +24,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class PlacesActivity extends AppCompatActivity implements  PlaceItemClickListener{
+public class PlacesActivity extends AppCompatActivity implements PlaceItemClickListener {
 
     private List<Slide> lstSlide;
     private ViewPager sliderpager;
@@ -55,11 +60,11 @@ public class PlacesActivity extends AppCompatActivity implements  PlaceItemClick
 
         //Iniciando datos
         List<Place> lstPlaces = new ArrayList<>();
-        lstPlaces.add(new Place("Museo de antropologia", R.drawable.place01));
-        lstPlaces.add(new Place("Castillo de Chapultepec", R.drawable.place02));
-        lstPlaces.add(new Place("Barrio Chino", R.drawable.place03));
-        lstPlaces.add(new Place("Monumento a la Revolucion", R.drawable.place04));
-        lstPlaces.add(new Place("Museo Frida Khalo", R.drawable.place05));
+        lstPlaces.add(new Place("Museo de antropologia", R.drawable.place01, R.drawable.place01));
+        lstPlaces.add(new Place("Castillo de Chapultepec", R.drawable.place02, R.drawable.place02));
+        lstPlaces.add(new Place("Barrio Chino", R.drawable.place03, R.drawable.place03));
+        lstPlaces.add(new Place("Monumento a la Revolucion", R.drawable.place04, R.drawable.place04));
+        lstPlaces.add(new Place("Museo Frida Khalo", R.drawable.place05, R.drawable.place05));
 
         PlaceAdapter placeAdapter = new PlaceAdapter(this, lstPlaces, this);
         PlacesRV.setAdapter(placeAdapter);
@@ -74,6 +79,7 @@ public class PlacesActivity extends AppCompatActivity implements  PlaceItemClick
         Intent intent = new Intent(this, PlaceDetailActivity.class);
         intent.putExtra("title", place.getTitle());
         intent.putExtra("imgURL", place.getThumnail());
+        intent.putExtra("imgCover", place.getCoverPhoto());
         //Creando animacion
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(PlacesActivity.this, placeimageView, "sharedName");
 

@@ -1,4 +1,4 @@
-package com.example.appturismo;
+package com.example.appturismo.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.appturismo.R;
+import com.example.appturismo.models.Slide;
 
 import java.util.List;
 

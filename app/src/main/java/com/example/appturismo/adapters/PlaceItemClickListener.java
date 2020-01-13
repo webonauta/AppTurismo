@@ -1,6 +1,8 @@
-package com.example.appturismo;
+package com.example.appturismo.adapters;
 
 import android.widget.ImageView;
+
+import com.example.appturismo.models.Place;
 
 public interface PlaceItemClickListener {
 

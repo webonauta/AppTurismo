@@ -1,21 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlaceDetailActivity"
+    tools:context=".ui.PlaceDetailActivity"
     android:background="@color/colorPrimary">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:transitionName="sharedName"
-        android:scaleType="centerCrop"
-        android:id="@+id/detail_place_img"
-        android:layout_width="166dp"
-        android:layout_height="106dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/place01" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/detail_place_cover"
+            android:layout_width="407dp"
+            android:layout_height="245dp"
+            android:layout_marginStart="2dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="-1dp"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="match_constraint"
+            android:src="@drawable/barra_degradado"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_place_cover"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/detail_place_cover"
+            app:layout_constraintTop_toTopOf="@+id/detail_place_cover" />
+
+        <ImageView
+            android:id="@+id/detail_place_img"
+            android:layout_width="166dp"
+            android:layout_height="106dp"
+            android:layout_marginStart="16dp"
+            android:scaleType="centerCrop"
+            android:transitionName="sharedName"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_place_cover"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_place_cover"
+            app:layout_constraintVertical_bias="0.528"
+            app:srcCompat="@drawable/place01" />
+
+        <TextView
+            android:textColor="#fff"
+            android:id="@+id/detail_place_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/detail_place_img"
+            app:layout_constraintTop_toBottomOf="@+id/detail_place_cover" />
+
+        <TextView
+            android:lineSpacingExtra="8dp"
+            android:textColor="@color/app_text"
+            android:id="@+id/detail_place_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/app_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_place_img" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

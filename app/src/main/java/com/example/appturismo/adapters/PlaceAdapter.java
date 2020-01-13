@@ -1,4 +1,4 @@
-package com.example.appturismo;
+package com.example.appturismo.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,16 +10,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appturismo.R;
+import com.example.appturismo.models.Place;
+
 import java.util.List;
 
 public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.MyViewHolder> {
 
     Context context;
     List<Place> mData;
+    PlaceItemClickListener placeItemClickListener;
 
-    public PlaceAdapter(Context context, List<Place> mData) {
+    public PlaceAdapter(Context context, List<Place> mData, PlaceItemClickListener listener) {
         this.context = context;
         this.mData = mData;
+        placeItemClickListener = listener;
     }
 
     @NonNull
@@ -49,6 +54,13 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.MyViewHolder
             super(itemView);
             TvTitle = itemView.findViewById(R.id.item_place_title);
             ImgPlace = itemView.findViewById(R.id.item_place_img);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    placeItemClickListener.onplaceClick(mData.get(getAdapterPosition()), ImgPlace);
+                }
+            });
         }
     }
 }

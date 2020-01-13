@@ -1,4 +1,4 @@
-package com.example.appturismo;
+package com.example.appturismo.models;
 
 public class Place {
 
@@ -6,6 +6,13 @@ public class Place {
     private String description;
     private int thumnail;
     private String calificacion;
+    private int coverPhoto;
+
+    public Place(String title, int thumnail, int coverPhoto) {
+        this.title = title;
+        this.thumnail = thumnail;
+        this.coverPhoto = coverPhoto;
+    }
 
     public Place(String title, int thumnail) {
         this.title = title;
@@ -17,6 +24,14 @@ public class Place {
         this.description = description;
         this.thumnail = thumnail;
         this.calificacion = calificacion;
+    }
+
+    public int getCoverPhoto() {
+        return coverPhoto;
+    }
+
+    public void setCoverPhoto(int coverPhoto) {
+        this.coverPhoto = coverPhoto;
     }
 
     public String getTitle() {
